@@ -10,7 +10,7 @@ namespace DiceRoller
 	public class Dice
 	{
 		protected static Random r;
-		public Dice(byte sides)
+		public Dice(int sides)
 		{
 			Sides = sides;
 			byte[] seed = new byte[1];

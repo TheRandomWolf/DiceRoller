@@ -9,7 +9,7 @@ namespace DiceRoller
 	class Program
 	{
 		static bool firstTime = true;
-		static void Main(string[] args)
+		static void Main()
 		{
 			if (firstTime == true)
 			{
@@ -32,18 +32,19 @@ namespace DiceRoller
 				int[] rolls =GetDiceRolls(sides, times);
 				string output = FormatResults(rolls);
 				Console.WriteLine(output);
+				Main();
 			}
 		}
 		static int[] GetDiceRolls(int sides, int times)
 		{
-			Dice d = new DiceRoller.Dice(sides);
+			Dice d = new Dice(sides);
 			int[] rolls = d.Roll(times);
 			return rolls;
 		}
 		static string FormatResults(int[] results)
 		{
 			int total = results.Sum();
-			StringBuilder sb = new StringBuilder("{0} : ", total);
+			StringBuilder sb = new StringBuilder(total + ": ");
 			foreach (int roll in results) sb.Append(roll + ", ");
 			return sb.ToString();
 		}
